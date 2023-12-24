@@ -26,9 +26,9 @@ fn addFive(n: u32) MyNumberError!u32 {
     // This function needs to return any error which might come back from detect().
     // Please use a "try" statement rather than a "catch".
     //
-    var x = detect(n);
+    try detect(n) catch |err| return err;
 
-    return x + 5;
+    return n + 5;
 }
 
 fn detect(n: u32) MyNumberError!u32 {
